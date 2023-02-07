@@ -1,0 +1,9 @@
+{
+		"host": "tt_server.com",
+		"port": 10335,
+		"username": "bot",
+		"password": "password123",
+		"nickname": "GPTBot",
+		"channel_id": 1,
+		"openai_api_key": "sk-YourApiKeyHere"
+}

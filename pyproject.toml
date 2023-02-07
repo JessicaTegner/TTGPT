@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "ttgpt"
+version = "0.1.0"
+description = ""
+authors = ["JessicaTegner <jessica.tegner@outlook.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+revchatgpt = {version = "^1.1.8", extras = ["unofficial"]}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
