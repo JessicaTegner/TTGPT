@@ -4,6 +4,8 @@ import json
 import hashlib
 
 from revChatGPT.Official import Chatbot
+import openai
+
 import teamtalk
 
 def split_string(string):
@@ -56,8 +58,8 @@ def handle_commands(content):
 
 def _make_gpt_request(original_content, conversation_id):
 	try:
-		result = chatbot.ask(original_content, conversation_id=conversation_id)
-		message = result["choices"][0]["text"]
+		response = openai.Completion.create(engine="text-davinci-003", prompt=original_content, max_tokens=2000)
+		message = response["choices"][0]["text"]
 	except Exception as e:
 		message = f"Error: {str(e)}"
 	# if result is empty or just a newline, return
@@ -152,6 +154,7 @@ if __name__ == "__main__":
 	server_info = json.load(open("config.json"))
 	validate_server_info(server_info)
 	chatbot = Chatbot(server_info["openai_api_key"])
+	openai.api_key = server_info["openai_api_key"]
 	try:
 		chatbot.conversations.load("conversations.json")
 	except FileNotFoundError:
