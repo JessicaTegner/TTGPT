@@ -58,7 +58,7 @@ def handle_commands(content):
 
 def _make_gpt_request(original_content, conversation_id):
 	try:
-		response = openai.Completion.create(engine="text-davinci-003", prompt=original_content, max_tokens=2000)
+		response = openai.Completion.create(engine="text-davinci-003", prompt=original_content, max_tokens=2000, temperature=1.2)
 		message = response["choices"][0]["text"]
 	except Exception as e:
 		message = f"Error: {str(e)}"
