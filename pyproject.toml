@@ -8,6 +8,8 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 openai = "^0.26.5"
+revchatgpt = {version = "^2.0.3", extras = ["unofficial"]}
+tiktoken = "^0.2.0"
 
 
 [build-system]
